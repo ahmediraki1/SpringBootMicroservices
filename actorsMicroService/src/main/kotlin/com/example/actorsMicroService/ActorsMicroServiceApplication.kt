@@ -13,20 +13,22 @@ import java.util.stream.LongStream
 @EnableEurekaClient
 @SpringBootApplication
 class ActorsMicroServiceApplication : SpringBootServletInitializer() {
-
+    // bean to insert some dummy data inside the actors table
     @Bean
-    internal fun initActors(repository: ActorsRepository)= CommandLineRunner {
-            repository.deleteAll()
-            LongStream.range(1, 11)
-                    .mapToObj { i ->
-                        val c = ActorModel()
-                        c.actorName = "ActorModel $i"
-                        c.actorEmail = "ActorModel$i@email.com"
-                        c.actorPhone = "+20100" + i * 100 + "8" + i
-                        c
-                    }
-                    .map { v -> repository.save(v) }
-                    .forEach({ println(it) })
+    internal fun initActors(repository: ActorsRepository) = CommandLineRunner {
+        repository.deleteAll()
+        LongStream.range(1, 11)
+                .mapToObj { i ->
+                    val c = ActorModel()
+                    c.actorName = "ActorModel $i"
+                    c.actorEmail = "ActorModel$i@email.com"
+                    c.actorPhone = "+20100" + i * 100 + "8" + i
+                    c
+                }
+                .map {
+                    v -> repository.save(v)
+                }
+                .forEach({ println(it) })
     }
 
     companion object {

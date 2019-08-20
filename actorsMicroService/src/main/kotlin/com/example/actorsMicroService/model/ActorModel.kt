@@ -18,20 +18,8 @@ class ActorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var actorId: Long? = null
-        set(actorId) {
-            field = this.actorId
-        }
 
     var actorName: String? = null
-        set(actorName) {
-            field = this.actorName
-        }
     var actorEmail: String? = null
-        set(actorEmail) {
-            field = this.actorEmail
-        }
     var actorPhone: String? = null
-        set(actorPhone) {
-            field = this.actorPhone
-        }
 }

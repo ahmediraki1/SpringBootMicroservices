@@ -18,16 +18,7 @@ class ShowModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var moviewId: Long? = null
-        set(moviewId) {
-            field = this.moviewId
-        }
 
     var moviewName: String? = null
-        set(moviewName) {
-            field = this.moviewName
-        }
     var moviewYear: String? = null
-        set(moviewYear) {
-            field = this.moviewYear
-        }
 }
